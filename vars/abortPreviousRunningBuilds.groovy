@@ -2,7 +2,6 @@ import hudson.model.Result
 import jenkins.model.CauseOfInterruption
 
 def call() {
-    // current build number
     def jobName = env.JOB_NAME
     def currentBuildNumber = env.BUILD_NUMBER.toInteger()
     def currentJob = Jenkins.instance.getItemByFullName(jobName)
