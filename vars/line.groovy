@@ -30,7 +30,7 @@ def notify(maps) {
      
   withCredentials([string(credentialsId: maps.get('access_token'), variable: 'LINE_NOTI_TOKEN')]) {
       sh '''
-      curl POST https://notify-api.line.me/api/notify -H 'Content-Type: application/x-www-form-urlencoded; Authorization=${LINE_NOTI_TOKEN}' -d '$postdata'
+      curl POST https://notify-api.line.me/api/notify -H 'Content-Type: application/x-www-form-urlencoded; Authorization=${LINE_NOTI_TOKEN}' -d '${postdata}'
       '''
   }
 }
