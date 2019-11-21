@@ -29,8 +29,9 @@ def notify(maps) {
   postdata = java.net.URLEncoder.encode(postdata, 'UTF-8')
      
   withCredentials([string(credentialsId: maps.get('access_token'), variable: 'LINE_NOTI_TOKEN')]) {
-      sh '''
+      // 문자열의 표현식을 바꾸려면 작은 따옴표 대신 큰 따옴표를 사용해야 합니다.
+      sh """
       curl -X POST -H "Authorization: Bearer ${LINE_NOTI_TOKEN}" -d "${postdata}" https://notify-api.line.me/api/notify
-      '''
+      """
   }
 }
