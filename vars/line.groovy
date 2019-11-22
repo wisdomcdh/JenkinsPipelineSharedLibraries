@@ -39,7 +39,7 @@ def notify(maps) {
        """
     } else {
        sh """
-          curl -X POST -H "Authorization: Bearer ${LINE_NOTI_TOKEN}" --data "${postdata}" https://notify-api.line.me/api/notify
+          curl -X POST -H "Authorization: Bearer ${LINE_NOTI_TOKEN}" --data-urlencode "${postdata}" https://notify-api.line.me/api/notify
        """
     }
   }
