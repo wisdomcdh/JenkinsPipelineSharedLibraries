@@ -14,7 +14,8 @@ def notify(maps) {
   def postdata = ''
   def fileData = ''
   def hasFileUpload = maps.get('imageFile');
-  postdata += 'message=' + maps.get('message')
+  
+  postdata += 'message=' + java.net.URLEncoder.encode(maps.get('message'), 'UTF-8')
   if(maps.containsKey('imageThumbnail')) {
     postdata += '&imageThumbnail=' + java.net.URLEncoder.encode(maps.get('imageThumbnail'), 'UTF-8')
   }
@@ -40,7 +41,7 @@ def notify(maps) {
        """
     } else {
        sh """
-          curl -X POST -H "Authorization: Bearer ${LINE_NOTI_TOKEN}" --data-urlencode "${postdata}" https://notify-api.line.me/api/notify
+          curl -X POST -H "Authorization: Bearer ${LINE_NOTI_TOKEN}" --data "${postdata}" https://notify-api.line.me/api/notify
        """
     }
   }
