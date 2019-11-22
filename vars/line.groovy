@@ -33,6 +33,7 @@ def notify(maps) {
      
   withCredentials([string(credentialsId: maps.get('access_token'), variable: 'LINE_NOTI_TOKEN')]) {
     // 문자열의 표현식을 바꾸려면 작은 따옴표 대신 큰 따옴표를 사용해야 합니다.
+    echo "${postdata}"
     if(hasFileUpload) {
       sh """
           curl -X POST -H "Content-Type: multipart/form-data" -H "Authorization: Bearer ${LINE_NOTI_TOKEN}" -F "${postdata}" -F "${fileData}" https://notify-api.line.me/api/notify
