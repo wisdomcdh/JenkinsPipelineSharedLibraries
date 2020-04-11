@@ -10,9 +10,6 @@ def branches(maps) {
   def workspace = maps.get('workspace')
   def repo_slug = maps.get('repo_slug')
   def q = maps.get('q')
-  if (q == null) {
-    q = 'q=name ~ "CKDEV-1"'
-  }
 
   def result;
   withCredentials([string(credentialsId: maps.get('access_key'), variable: 'CURL_USER')]) {
