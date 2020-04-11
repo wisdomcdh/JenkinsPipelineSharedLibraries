@@ -1,7 +1,7 @@
 ## abortPreviousRunningBuilds
 현재 빌드 번호 이전의 빌드중인 내역을 취소 시킵니다.
 
-### `abortPreviousRunningBuilds()`
+##### `abortPreviousRunningBuilds()`
 
 ```groovy
 abortPreviousRunningBuilds()
@@ -10,7 +10,7 @@ abortPreviousRunningBuilds()
 ## line
 line API를 사용할 수 있습니다. https://notify-bot.line.me/doc/en/
 
-### `notify`
+##### `notify`
 POST `https://notify-api.line.me/api/notify` API
 
 ```groovy
@@ -20,7 +20,7 @@ line.notify access_token: 'your token', message: 'message', imageThumbnail: 'opt
 line.notify access_token: 'my credentialsId', message: 'hello world'
 ```
 
-##### parameters
+###### parameters
 
 | name | Description |
 | --- | --- |
@@ -32,3 +32,13 @@ line.notify access_token: 'my credentialsId', message: 'hello world'
 | stickerPackageId | [optional] Package ID. |
 | stickerId | [optional] 	Sticker ID. |
 | notificationDisabled | [optional] management push notification |
+
+## bitbucket
+
+bitbucket API를 사용할 수 있습니다.
+
+##### `branches` - branche 목록을 가져옵니다.
+
+```groovy
+bitbucket.branches access_token: 'my credentialsId', workspace: 'myWorkspace', repo_slug: 'myRepoSlug', q: 'q=name ~ "CKDEV-1"'
+```
