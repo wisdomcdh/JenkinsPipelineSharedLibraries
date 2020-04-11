@@ -14,7 +14,7 @@ def branches(maps) {
   def result;
   withCredentials([string(credentialsId: maps.get('access_key'), variable: 'CURL_USER')]) {
     result = sh (
-      script "curl -s -G --data-urlencode '${q}' -u '${CURL_USER}' https://api.bitbucket.org/2.0/repositories/${workspace}/${repo_slug}/refs/branches | jq '.values [] | .name'"
+      script: "curl -s -G --data-urlencode '${q}' -u '${CURL_USER}' https://api.bitbucket.org/2.0/repositories/${workspace}/${repo_slug}/refs/branches | jq '.values [] | .name'",
       returnStdout: true
     )
   }
